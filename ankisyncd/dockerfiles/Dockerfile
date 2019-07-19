@@ -7,6 +7,9 @@ RUN apt-get update && apt-get install -y \
 
 COPY supervisord.conf /etc/supervisor/supervisord.conf
 
+ADD neith.crt /usr/local/share/ca-certificates/neith.crt
+RUN update-ca-certificates
+
 ENV NEXTCLOUD_UPDATE=1
 
 CMD ["/usr/bin/supervisord"]
