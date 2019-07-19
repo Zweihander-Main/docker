@@ -1,0 +1,10 @@
+FROM cguenther/docker-fetchmail:latest
+
+### Install Application
+RUN apk upgrade --no-cache && \
+    apk add --no-cache --virtual=run-deps \
+      ca-certificates msmtp su-exec && \
+    rm -rf /tmp/* \
+           /var/cache/apk/*  \
+           /var/tmp/*
+
