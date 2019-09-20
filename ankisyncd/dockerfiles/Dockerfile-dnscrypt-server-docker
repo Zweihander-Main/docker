@@ -8,3 +8,5 @@ RUN set -ex; \
     mkdir -p /var/spool/cron/crontabs /etc/service/unboundCron;
 
 COPY cron-dnscrypt-server-docker.sh /etc/service/unboundCron/run
+
+RUN chmod +x /etc/service/unboundCron/run
