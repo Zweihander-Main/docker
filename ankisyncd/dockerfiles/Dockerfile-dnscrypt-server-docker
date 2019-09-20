@@ -1,0 +1,20 @@
+FROM  jedisct1/dnscrypt-server
+MAINTAINER Zweihänder
+
+# cron.sh dependencies
+RUN set -ex; \
+    \
+    apk add --no-cache \
+        supervisor \
+        bind-tools \
+    ; \
+    rm /var/spool/cron/crontabs/root; \
+    mkdir -p /var/spool/cron/crontabs /var/log/supervisord /var/run/supervisord; \
+    echo '0 0 1 * * /usr/bin/dig . NS @75.127.96.89 > /opt/unbound/etc/unbound/opennic.cache' > /var/spool/cron/crontabs/_unbound
+
+COPY supervisord-dnscrypt-server-docker.conf /etc/supervisord.conf
+COPY cron.sh /cron.sh
+
+RUN /usr/bin/dig . NS @75.127.96.89 > /opt/unbound/etc/unbound/var/opennic.cache
+
+CMD ["/usr/bin/supervisord"]

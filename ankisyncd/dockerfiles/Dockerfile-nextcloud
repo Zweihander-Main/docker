@@ -1,11 +1,12 @@
 FROM nextcloud:apache
+MAINTAINER Zweihänder
 
 RUN apt-get update && apt-get install -y \
     supervisor \
   && rm -rf /var/lib/apt/lists/* \
   && mkdir /var/log/supervisord /var/run/supervisord
 
-COPY supervisord.conf /etc/supervisor/supervisord.conf
+COPY supervisord-nextcloud.conf /etc/supervisor/supervisord.conf
 
 ADD neith.crt /usr/local/share/ca-certificates/neith.crt
 RUN update-ca-certificates
@@ -13,3 +14,5 @@ RUN update-ca-certificates
 ENV NEXTCLOUD_UPDATE=1
 
 CMD ["/usr/bin/supervisord"]
+
+# TODO remove crt and remove it from git logs
