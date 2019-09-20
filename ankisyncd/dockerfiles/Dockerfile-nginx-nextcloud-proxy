@@ -1,0 +1,4 @@
+FROM jwilder/nginx-proxy:alpine
+MAINTAINER Zweihänder
+
+COPY uploadsize-nginx-nextcloud-proxy.conf /etc/nginx/conf.d/uploadsize.conf
