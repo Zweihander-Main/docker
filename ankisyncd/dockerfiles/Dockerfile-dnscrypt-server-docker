@@ -3,22 +3,8 @@ MAINTAINER Zweihänder
 
 # cron.sh dependencies
 RUN set -ex; \
-    \
-    apk add --no-cache \
-        supervisor \
-        bind-tools \
-    ; \
+    apk add --no-cache bind-tools; \
     rm /var/spool/cron/crontabs/root; \
-    mkdir -p /var/spool/cron/crontabs /var/log/supervisord /var/run/supervisord; \
-    mkdir -p -m 700 /opt/unbound/etc/unbound/var; \
-    /usr/bin/dig . NS @75.127.96.89 > /opt/unbound/etc/unbound/var/opennic.cache; \
-    echo "0 0 1 * * /usr/bin/dig . NS @75.127.96.89 > /opt/unbound/etc/unbound/var/opennic.cache" > /var/spool/cron/crontabs/_unbound; \
-    sed '5i\ \ root-hints: "/opt/unbound/etc/unbound/var/opennic.cache"' /opt/unbound/etc/unbound/unbound.conf > /opt/unbound/etc/unbound/unbound.conf;
+    mkdir -p /var/spool/cron/crontabs /etc/service/unboundCron;
 
-COPY supervisord-dnscrypt-server-docker.conf /etc/supervisord.conf
-COPY cron.sh /cron.sh
-
-CMD ["/usr/bin/supervisord"]
-
-
-# root hints still to do
+COPY cron-dnscrypt-server-docker.sh /etc/service/unboundCron/run
