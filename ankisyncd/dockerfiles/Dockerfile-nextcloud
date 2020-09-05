@@ -1,4 +1,4 @@
-FROM nextcloud:apache
+FROM nextcloud:17.0.9-apache
 MAINTAINER Zweihänder
 
 RUN apt-get update && apt-get install -y \
