@@ -1,7 +1,6 @@
 FROM nextcloud:apache
-MAINTAINER Zweihänder
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     supervisor \
   && rm -rf /var/lib/apt/lists/* \
   && mkdir /var/log/supervisord /var/run/supervisord
