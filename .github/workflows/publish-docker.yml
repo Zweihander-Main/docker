@@ -4,6 +4,8 @@ name: Publish DockerHub image
   push:
     branches:
       - "master"
+    tags:
+      - "v*"
 
 jobs:
   build-container:
