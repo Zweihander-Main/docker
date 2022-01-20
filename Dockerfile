@@ -1,5 +1,5 @@
 FROM cguenther/docker-fetchmail:latest
-MAINTAINER Zweihänder
 
 ### Install Application
-RUN apk add ca-certificates msmtp su-exec
+RUN apk --no-cache add ca-certificates msmtp su-exec \
+    && rm -rf /var/cache/apk/*
