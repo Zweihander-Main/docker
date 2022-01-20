@@ -43,6 +43,9 @@ docker run -d -p 80:80 -p 443:443 \
 -   [GitHub](https://github.com/Zweihander-Main/docker-tellico-web)
 -   [Docker Hub](https://hub.docker.com/r/zweizs/docker-tellico-web)
 
+## Dev notes:
+- Github Action creates build with Docker tag based on Git semver tag
+
 ## Available for Hire
 
 I'm available for freelance, contracts, and consulting both remotely and in the Hudson Valley, NY (USA) area. [Some more about me](https://www.zweisolutions.com/about.html) and [what I can do for you](https://www.zweisolutions.com/services.html).
