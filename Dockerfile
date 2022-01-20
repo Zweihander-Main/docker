@@ -1,5 +1,4 @@
 FROM golang:1.14-buster AS easy-novnc-build
-MAINTAINER Zweihänder
 
 WORKDIR /src
 
@@ -11,8 +10,8 @@ FROM debian:testing-20201012-slim
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends tigervnc-standalone-server \
-	supervisor gosu ca-certificates ratpoison plasma-desktop dbus-x11 \
-	kio-extras tellico  && \
+    supervisor gosu ca-certificates ratpoison plasma-desktop dbus-x11 \
+    kio-extras tellico  && \
     rm -rf /var/lib/apt/lists && \
     mkdir -p /usr/share/desktop-directories
 
