@@ -59,9 +59,6 @@ EXPOSE ${ANKISYNCD_PORT}
 
 CMD ["/bin/sh", "./bin/entrypoint.sh"]
 
-# Copy ankisyncctl to root if it exists
-# COPY *./ankisyncd_cli/ankisyncctl.py .
-
 # Healthcheck using script
 COPY bin/healthcheck.py ./bin/healthcheck.py
 HEALTHCHECK --interval=60s --timeout=3s CMD python ./bin/healthcheck.py
