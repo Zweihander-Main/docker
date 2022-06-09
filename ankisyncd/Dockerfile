@@ -43,8 +43,8 @@ ARG ANKISYNCD_PORT=27701
 ARG ANKISYNCD_BASE_URL=/sync/
 ARG ANKISYNCD_BASE_MEDIA_URL=/msync/
 ARG ANKISYNCD_AUTH_DB_PATH=${ANKISYNCD_DATA_ROOT}/auth.db
-ARG ANKISYNCD_SESSION_DB_PATH=${ANKISYNCD_DATA_ROOT}/session.db
 
+ARG ANKISYNCD_SESSION_DB_PATH=${ANKISYNCD_DATA_ROOT}/session.db
 ENV ANKISYNCD_HOST=0.0.0.0 \
     ANKISYNCD_PORT=${ANKISYNCD_PORT} \
     ANKISYNCD_DATA_ROOT=${ANKISYNCD_DATA_ROOT} \
@@ -59,6 +59,9 @@ EXPOSE ${ANKISYNCD_PORT}
 
 CMD ["/bin/sh", "./bin/entrypoint.sh"]
 
-COPY bin/healthcheck.py ./bin/healthcheck.py
+# Copy ankisyncctl to root if it exists
+# COPY *./ankisyncd_cli/ankisyncctl.py .
 
+# Healthcheck using script
+COPY bin/healthcheck.py ./bin/healthcheck.py
 HEALTHCHECK --interval=60s --timeout=3s CMD python ./bin/healthcheck.py
