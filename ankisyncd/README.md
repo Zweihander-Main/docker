@@ -26,8 +26,11 @@ $ docker exec -it anki /bin/bash
 and execute:
 
 ```shell
+$ cp ./ankisyncd_cli/ankisynctl.py .
 $ python ./ankisyncctl.py adduser <username>
 ```
+
+Copy step can be skipped if [issue/128](https://github.com/ankicommunity/anki-sync-server/issues/128) is resolved.
 
 ### Sample configuration with Traefik (does not work with v2.3.0 and prior releases)
 
