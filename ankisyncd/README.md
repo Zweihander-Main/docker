@@ -6,10 +6,10 @@ Uses [ankicommunity/anki-sync-server](https://github.com/ankicommunity/anki-sync
 
 ## Tested
 
-| Platform  | Version | Download                                                                          |
-| --------- | ------- | --------------------------------------------------------------------------------- |
-| Linux     | 2.1.49  | [Mega](https://mega.nz/file/gxsSDRjC#PsQiO3FGka_dMIeHOBOrnYejZiRrH4W5KXkKBjsOb9c) |
-| AnkiDroid | 2.15.6  | [Mega](https://mega.nz/file/55lHFBDQ#ZH0okHe_rknOnuudQ0JmcfC51jhoDGdH6CJysIMG1Is) |
+| Platform  | Version | Release | Download                                                                          |
+| --------- | ------- | ------- | --------------------------------------------------------------------------------- |
+| Linux     | 2.1.49  | v2.3.0  | [Mega](https://mega.nz/file/gxsSDRjC#PsQiO3FGka_dMIeHOBOrnYejZiRrH4W5KXkKBjsOb9c) |
+| AnkiDroid | 2.15.6  | v2.3.0  | [Mega](https://mega.nz/file/55lHFBDQ#ZH0okHe_rknOnuudQ0JmcfC51jhoDGdH6CJysIMG1Is) |
 
 ## Instructions
 
