@@ -32,7 +32,8 @@ jobs:
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
-            type=raw,pattern={{date 'YYYYMMDD'}}
+            type=raw,value={{date 'YYYYMMDD'}}
+            type=raw,latest
 
       - name: Build and push
         uses: docker/build-push-action@v2
