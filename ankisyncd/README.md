@@ -77,7 +77,7 @@ proxy_set_header Proxy "";
 ### Notes on usage:
 
 - If you have a large media collection, focus on syncing it first (it may take a few tries)
-- Don't use other addons for syncing, just use `ankisyncd` on its own
+- Don't use other/multiple addons for syncing
 
 ## Links
 
