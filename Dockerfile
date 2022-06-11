@@ -1,4 +1,6 @@
-FROM golang:1.14-buster AS easy-novnc-build
+ARG TELLICO_VERSION=3.4.4-1
+
+FROM golang:1-bullseye AS easy-novnc-build
 
 WORKDIR /src
 
@@ -6,22 +8,27 @@ RUN go mod init build && \
     go get github.com/geek1011/easy-novnc@v1.1.0 && \
     go build -o /bin/easy-novnc github.com/geek1011/easy-novnc
 
-FROM debian:testing-20220125-slim
+FROM debian:bookworm-slim
+
+ARG TELLICO_VERSION
+
+ENV UID=1000
+ENV GID=1000
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends tigervnc-standalone-server \
     supervisor gosu ca-certificates ratpoison plasma-desktop dbus-x11 \
-    kio-extras tellico=3.4.4-1  && \
-    rm -rf /var/lib/apt/lists && \
-    mkdir -p /usr/share/desktop-directories
+    kio-extras tellico=$TELLICO_VERSION && \
+    apt-get clean && rm -rf /var/lib/apt/lists && \
+    mkdir -p /usr/share/desktop-directories && \
+    groupadd --gid $GID app && \
+    useradd --home-dir /data --shell /bin/bash --uid $UID --gid $GID app && \
+    mkdir -p /data
 
 COPY --from=easy-novnc-build /bin/easy-novnc /usr/local/bin/
-COPY supervisord.conf /etc/
+COPY ./bin/supervisord.conf /etc/
 EXPOSE 8080
 
-RUN groupadd --gid 1000 app && \
-    useradd --home-dir /data --shell /bin/bash --uid 1000 --gid 1000 app && \
-    mkdir -p /data
 VOLUME /data
 WORKDIR /data
 
