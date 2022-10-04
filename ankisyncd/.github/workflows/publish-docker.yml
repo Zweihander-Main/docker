@@ -6,9 +6,8 @@ name: Publish DockerHub image
       - "master"
     tags:
       - "v*"
-  workflow_run:
-    workflows: ["trigger"]
-    types: [completed]
+    paths-ignore:
+      - ".github/**"
   workflow_dispatch:
 
 jobs:
