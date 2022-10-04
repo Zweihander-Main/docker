@@ -91,7 +91,6 @@ proxy_set_header Proxy "";
 
 - Github Action creates build with Docker tag based on Git semver tag
 - When no tag present, Action creates release with date
-- Action checks original repo default branch for new commits daily and creates new releases when a new commit has been found
 
 ## Available for Hire
 

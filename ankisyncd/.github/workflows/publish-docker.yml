@@ -8,6 +8,8 @@ name: Publish DockerHub image
       - "v*"
     paths-ignore:
       - ".github/**"
+      - "README.md"
+      - "LICENSE"
   workflow_dispatch:
 
 jobs:
