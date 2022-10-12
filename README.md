@@ -1,6 +1,6 @@
 # Docker
 
-> Monorepo for docker projects
+> Docker recipes, monorepo style
 
 ## Available for Hire
 
