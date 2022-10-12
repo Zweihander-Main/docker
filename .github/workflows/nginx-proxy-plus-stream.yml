@@ -1,5 +1,5 @@
 ---
-name: Publish DockerHub image
+name: Publish zweizs/docker-nginx-proxy-plus-stream
 "on":
   workflow_dispatch:
   schedule:
@@ -8,11 +8,10 @@ name: Publish DockerHub image
     branches:
       - "master"
     tags:
-      - "v*"
-    paths-ignore:
-      - ".gitignore"
-      - "LICENSE"
-      - "*.md"
+      - "nginx/v*"
+    paths:
+      - "nginx-proxy-plus-stream/**"
+      - "!nginx-proxy-plus-stream/README.md"
 
 jobs:
   build-container:
@@ -41,7 +40,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: "{{defaultContext}}:nginx-proxy-plus-stream"
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

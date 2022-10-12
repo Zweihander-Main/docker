@@ -1,15 +1,14 @@
 ---
-name: Publish DockerHub image
+name: Publish zweizs/docker-ankisyncd
 "on":
   push:
     branches:
       - "master"
     tags:
-      - "v*"
-    paths-ignore:
-      - ".github/**"
-      - "README.md"
-      - "LICENSE"
+      - "ankisyncd/v*"
+    paths:
+      - "ankisyncd/**"
+      - "!ankisyncd/README.md"
   workflow_dispatch:
 
 jobs:
@@ -39,7 +38,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: "{{defaultContext}}:ankisyncd"
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

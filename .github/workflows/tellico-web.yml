@@ -1,11 +1,14 @@
 ---
-name: Publish DockerHub image
+name: Publish zweizs/docker-tellico-web
 "on":
   push:
     branches:
       - "master"
     tags:
-      - "v*"
+      - "tellico/v*"
+    paths:
+      - "tellico-web/**"
+      - "!tellico-web/README.md"
 
 jobs:
   build-container:
@@ -33,7 +36,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: "{{defaultContext}}:tellico-web"
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

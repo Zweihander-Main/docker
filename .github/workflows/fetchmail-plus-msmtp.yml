@@ -1,9 +1,14 @@
 ---
-name: Publish DockerHub image
+name: Publish zweizs/docker-fetchmail-plus-msmtp
 "on":
   push:
     branches:
       - "master"
+    tags:
+      - "fetchmail/v*"
+    paths:
+      - "fetchmail-plus-msmtp/**"
+      - "!fetchmail-plus-msmtp/README.md"
 
 jobs:
   build-container:
@@ -21,6 +26,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: .
+          context: "{{defaultContext}}:fetchmail-plus-msmtp"
           push: true
           tags: zweizs/docker-fetchmail-plus-msmtp:latest
