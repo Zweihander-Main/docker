@@ -11,6 +11,7 @@ docker run -it --name fetchmail -v /fetchmail_config:/data -e TIMECRON:300 zweiz
 ```
 
 `/fetchmail_config/etc/fetchmailrc`
+
 ```
 set no syslog
 set logfile /data/log/fetchmail.log
@@ -26,6 +27,7 @@ poll imap.aol.com with proto IMAP
 ```
 
 `/fetchmail/etc/msmtprc`
+
 ```
 # Set default values for all following accounts.
 defaults
@@ -58,4 +60,4 @@ hi [a+] zweisolutions {●} com
 
 ## License
 
-[MIT](./LICENSE)
+[MIT](../LICENSE)

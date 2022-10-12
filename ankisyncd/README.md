@@ -106,4 +106,4 @@ hi [a+] zweisolutions {●} com
 
 [ankicommunity/anki-sync-server](https://github.com/ankicommunity/anki-sync-server) is licensed under [GPLv3](https://github.com/ankicommunity/anki-sync-server/blob/develop/COPYING)
 
-This repo is [MIT](./LICENSE)
+This repo is [MIT](../LICENSE)

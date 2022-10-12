@@ -60,4 +60,4 @@ hi [a+] zweisolutions {●} com
 
 ## License
 
-[MIT](./LICENSE)
+[MIT](../LICENSE)
