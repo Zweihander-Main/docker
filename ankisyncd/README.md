@@ -84,7 +84,7 @@ proxy_set_header Proxy "";
 
 ## Links
 
-- [GitHub](https://github.com/Zweihander-Main/docker-ankisyncd)
+- [GitHub](https://github.com/Zweihander-Main/docker/tree/master/ankisyncd)
 - [Docker Hub](https://hub.docker.com/r/zweizs/docker-ankisyncd)
 
 ## Dev notes:

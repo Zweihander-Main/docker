@@ -41,7 +41,7 @@ docker run -d -p 80:80 -p 443:443 \
 
 ## Links
 
-- [GitHub](https://github.com/Zweihander-Main/docker-tellico-web)
+- [GitHub](https://github.com/Zweihander-Main/docker/tree/master/tellico-web)
 - [Docker Hub](https://hub.docker.com/r/zweizs/docker-tellico-web)
 
 ## Dev notes:
