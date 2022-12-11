@@ -9,6 +9,7 @@ name: Publish zweizs/docker-fetchmail-plus-msmtp
     paths:
       - "fetchmail-plus-msmtp/**"
       - "!fetchmail-plus-msmtp/README.md"
+  workflow_dispatch:
 
 jobs:
   build-container:

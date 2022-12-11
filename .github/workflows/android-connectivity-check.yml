@@ -9,6 +9,7 @@ name: Publish zweizs/android-connectivity-check
     paths:
       - "android-connectivity-check/**"
       - "!android-connectivity-check/README.md"
+  workflow_dispatch:
 
 jobs:
   build-container:

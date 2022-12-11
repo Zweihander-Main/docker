@@ -9,6 +9,7 @@ name: Publish zweizs/docker-tellico-web
     paths:
       - "tellico-web/**"
       - "!tellico-web/README.md"
+  workflow_dispatch:
 
 jobs:
   build-container:
