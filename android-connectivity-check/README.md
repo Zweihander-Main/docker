@@ -9,6 +9,10 @@ settings put global captive_portal_http_url "http://yoursite.com/"
 settings put global captive_portal_https_url "https://yoursite.com/"
 ```
 
+Note that using https for both _seems_ to work. Tested Lineage 18.1/Android 11.
+
+Hat tip to [this post](https://malv.in/posts/2018-11-08-self-hosting-the-wifi-connectivity-check-for-android.html) as inspiration for this container.
+
 ## Instructions
 
 ```
