@@ -5,7 +5,7 @@ mkdir -p release
 
 cd release
 
-git clone https://github.com/ankicommunity/anki-sync-server # --branch v2.3.0
+git clone https://github.com/ankicommunity/anki-sync-server --branch v2.4.0
 
 mv anki-sync-server/src/* .
 
