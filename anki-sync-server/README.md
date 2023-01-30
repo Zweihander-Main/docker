@@ -80,7 +80,7 @@ proxy_set_header Proxy "";
 
 ## Dev notes:
 
-- Github Action creates build with Docker tag based on Git semver tag
+- Github Action creates build with Docker tag based on tag format: `anki-sync-server/v2.1.57`
 - When no tag present, Action creates release with date
 
 ## Available for Hire
