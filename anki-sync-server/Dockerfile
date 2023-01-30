@@ -1,0 +1,31 @@
+FROM python:3.11-slim
+ARG ANKISYNCSERVER_ROOT=/data
+ARG ANKISYNCSERVER_VERSION="2.1.57"
+ARG ANKISYNCSERVER_PORT=8080
+
+RUN mkdir -p ${ANKISYNCSERVER_ROOT} && \
+    python3 -m venv ${ANKISYNCSERVER_ROOT} && \
+    ${ANKISYNCSERVER_ROOT}/bin/pip install "anki==${ANKISYNCSERVER_VERSION}"
+
+ENV VENV_ROOT="${ANKISYNCSERVER_ROOT}"
+
+ENV SYNC_USER1="user:password"
+ENV SYNC_BASE="${VENV_ROOT}"
+ENV SYNC_HOST=0.0.0.0
+ENV SYNC_PORT=${ANKISYNCSERVER_PORT}
+ENV MAX_SYNC_UPLOAD_MEGS=100
+
+EXPOSE ${ANKISYNCSERVER_PORT}
+
+VOLUME ${ANKISYNCSERVER_ROOT}
+WORKDIR ${ANKISYNCSERVER_ROOT}
+
+CMD ${VENV_ROOT}/bin/python -m anki.syncserver
+
+# Healthcheck using script
+COPY bin/healthcheck.py ./bin/healthcheck.py
+HEALTHCHECK \
+    --interval=60s \
+    --timeout=3s \
+    --start-period=5s \
+    CMD python ./bin/healthcheck.py
