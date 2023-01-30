@@ -27,7 +27,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: zweizs/docker-anki-sync-server
+          images: zweizs/anki-sync-server
           tags: |
             type=match,pattern=anki-sync-server/v(\d.\d.\d),group=1
             type=raw,value={{date 'YYYYMMDD'}}
