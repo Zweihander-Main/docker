@@ -6,8 +6,8 @@
 
 | Platform  | Version    | Release |
 | --------- | ---------- | ------- |
-| Linux     | 2.1.56-qt6 | v2.1.56 |
-| AnkiDroid | 2.15.6     | v2.1.56 |
+| Linux     | 2.1.56-qt6 | 2.1.56  |
+| AnkiDroid | 2.15.6     | 2.1.56  |
 
 ## Instructions
 
