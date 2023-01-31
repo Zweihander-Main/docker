@@ -1,4 +1,4 @@
-# anki-sync-server
+# Anki Sync Server
 
 > Dockerized builtin Anki Sync Server (2.1.57+)
 
