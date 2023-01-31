@@ -15,7 +15,7 @@ Reference [the Anki manual on the builtin sync server](https://docs.ankiweb.net/
 
 Security is your problem: this normally runs on an unencrypted port 8080. Setting up a reverse proxy with HTTPS is recommended. Sample configs below.
 
-Set the `Self-hosted sync server` option under `Preferences -> Syncing` on Desktop. Point AnkiDroid to the same URL plus `/sync/` and `/msync/` (check the above documentation, this may change in the future). Make sure you set the protocol (`http://`) whenever you enter this address.
+Set the `Self-hosted sync server` option under `Preferences -> Syncing` on Desktop. For AnkiDroid, use the same URL (with trailing slash) for the main sync URL and add `/msync/` for the media URL (check the above documentation, this may change in the future). Make sure you set the protocol (`http://`) whenever you enter this address.
 
 ### One-liner
 
