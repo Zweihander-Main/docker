@@ -1,4 +1,4 @@
-ARG TELLICO_VERSION=3.4.4-1
+ARG TELLICO_VERSION=3.4.6-1
 
 FROM golang:1-bullseye AS easy-novnc-build
 
@@ -8,7 +8,7 @@ RUN go mod init build && \
     go get github.com/geek1011/easy-novnc@v1.1.0 && \
     go build -o /bin/easy-novnc github.com/geek1011/easy-novnc
 
-FROM debian:bookworm-slim
+FROM debian:sid-slim
 
 ARG TELLICO_VERSION
 
