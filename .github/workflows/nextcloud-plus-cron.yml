@@ -32,6 +32,7 @@ jobs:
         with:
           images: zweizs/docker-nextcloud-plus-cron
           tags: |
+            type=match,pattern=nextcloud-v(\d+.\d+.\d+-\d+),group=1
             type=match,pattern=nextcloud-v(\d+.\d+.\d+),group=1
             type=schedule,pattern={{date 'YYYYMMDD'}}
             type=raw,value=latest,enable=${{ endsWith(github.ref, github.event.repository.default_branch) }}

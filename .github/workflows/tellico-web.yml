@@ -30,6 +30,7 @@ jobs:
         with:
           images: zweizs/docker-tellico-web
           tags: |
+            type=match,pattern=tellico-v(\d+.\d+.\d+-\d+),group=1
             type=match,pattern=tellico-v(\d+.\d+.\d+),group=1
             type=raw,value={{date 'YYYYMMDD'}}
             type=raw,latest
