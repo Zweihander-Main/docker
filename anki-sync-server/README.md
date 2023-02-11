@@ -17,6 +17,8 @@ Security is your problem: this normally runs on an unencrypted port 8080. Settin
 
 Set the `Self-hosted sync server` option under `Preferences -> Syncing` on Desktop. For AnkiDroid, use the same URL (with trailing slash) for the main sync URL and add `/msync/` for the media URL (check the above documentation, this may change in the future). Make sure you set the protocol (`http://`) whenever you enter this address.
 
+Note that 2.1.57 is not compatible with 2.1.57-1 as the location of the virtual environment and data directory was separated (strongly recommend deleting the volume and re-syncing).
+
 ### One-liner
 
 ```shell
