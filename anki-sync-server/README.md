@@ -38,7 +38,7 @@ docker run --name anki-sync-server -p 8080:8080 zweizs/anki-sync-server:latest
 | `SYNC_HOST`            | `0.0.0.0`       |
 | `SYNC_PORT`            | `8080`          |
 | `MAX_SYNC_UPLOAD_MEGS` | `100`           |
-| `VENV_ROOT`            | `/data`         |
+| `VENV_ROOT`            | `/venv`         |
 
 ### Sample configuration with Traefik
 
