@@ -4,7 +4,7 @@ ARG ANKISYNCSERVER_VENV=/venv
 ARG ANKISYNCSERVER_VERSION="2.1.57"
 ARG ANKISYNCSERVER_PORT=8080
 
-RUN mkdir -p ${ANKISYNCSERVER_ROOT} ${ANKISYNCSERVER_VENV}} && \
+RUN mkdir -p ${ANKISYNCSERVER_ROOT} ${ANKISYNCSERVER_VENV} && \
     python3 -m venv ${ANKISYNCSERVER_VENV} && \
     ${ANKISYNCSERVER_VENV}/bin/pip install "anki==${ANKISYNCSERVER_VERSION}"
 
@@ -24,9 +24,9 @@ WORKDIR ${ANKISYNCSERVER_ROOT}
 CMD ${VENV_ROOT}/bin/python -m anki.syncserver
 
 # Healthcheck using script
-COPY bin/healthcheck.py ./bin/healthcheck.py
+COPY bin/healthcheck.py /opt/healthcheck.py
 HEALTHCHECK \
     --interval=60s \
     --timeout=3s \
     --start-period=5s \
-    CMD python ./bin/healthcheck.py
+    CMD python /opt/healthcheck.py
