@@ -31,13 +31,9 @@ RUN apk --update --no-cache add \
     libcdio-dev \
     libkcddb-dev \
     libksane-dev \
-    perl-text-bibtex \
-    libxslt-dev
+    perl-text-bibtex
 
-## TODO Note no support for searching z39.50 databases (yaz)
-## TODO Restart app if it crashes
-## TODO Settings stored as before
-## - Could migrate them to new locations
+## TODO Favicon
 
 ENV DIST_PATH="/dist"
 
@@ -60,20 +56,20 @@ ENV ENABLE_CJK_FONT 1
 
 COPY --from=builder /dist /
 COPY /rootfs /
-RUN add-pkg ca-certificates kded dbus-x11 libxslt \
+RUN add-pkg ca-certificates kded dbus-x11 mesa-dri-gallium \
     qt5-qtwebengine qt5-qtcharts taglib poppler poppler-qt5 exempi \
     knewstuff kfilemetadata libcdio libkcddb libksane perl-text-bibtex \
     kdelibs4support kitemmodels kio breeze-icons plasma-integration && \
-    mkdir -p /usr/share/desktop-directories \
-    /data /data/.config /data/.local/share && \
-    take-ownership /data && \
+    mkdir -p /usr/share/desktop-directories /data /data/.config /data/.local/share/tellico && \
+    cp /usr/share/tellico/tellico-common.xsl /data/.local/share/tellico/tellico-common.xsl && \
     set-cont-env APP_NAME "Tellico" && \
     set-cont-env APP_VERSION "${TELLICO_VERSION}" && \
     set-cont-env HOME "/data" && \
     set-cont-env XDG_CONFIG_HOME "/data/.config" && \
-    set-cont-env XDG_DATA_HOME "/data/.local/share"
+    set-cont-env XDG_DATA_HOME "/data/.local/share" && \
+    take-ownership /data
 
-EXPOSE 8080
 
 VOLUME /data
 WORKDIR /data
+EXPOSE 8080
