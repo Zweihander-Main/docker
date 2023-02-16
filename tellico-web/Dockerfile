@@ -33,10 +33,7 @@ RUN apk --update --no-cache add \
     libksane-dev \
     perl-text-bibtex
 
-## TODO Favicon
-
 ENV DIST_PATH="/dist"
-
 WORKDIR /usr/local/src/tellico
 COPY --from=src-tellico /src .
 RUN cmake . -DCMAKE_INSTALL_PREFIX=`kf5-config --prefix`
@@ -67,8 +64,9 @@ RUN add-pkg ca-certificates kded dbus-x11 mesa-dri-gallium \
     set-cont-env HOME "/data" && \
     set-cont-env XDG_CONFIG_HOME "/data/.config" && \
     set-cont-env XDG_DATA_HOME "/data/.local/share" && \
-    take-ownership /data
-
+    take-ownership /data && \
+    APP_ICON_URL=https://tellico-project.org/wp-content/uploads/2019/07/cropped-tellico-512-270x270.png && \
+    install_app_icon.sh "$APP_ICON_URL"
 
 VOLUME /data
 WORKDIR /data
