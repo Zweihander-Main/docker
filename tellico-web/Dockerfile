@@ -1,4 +1,4 @@
-ARG TELLICO_VERSION=3.5.1
+ARG TELLICO_VERSION=3.5.2
 
 FROM alpine:latest AS src
 RUN apk --update --no-cache add curl git tar tree xz
