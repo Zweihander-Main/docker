@@ -31,6 +31,7 @@ jobs:
           tags: |
             type=match,pattern=anki-sync-server-v(\d+.\d+.\d+-\d+),group=1
             type=match,pattern=anki-sync-server-v(\d+.\d+.\d+),group=1
+            type=match,pattern=anki-sync-server-v(\d+.\d+),group=1
             type=raw,value={{date 'YYYYMMDD'}}
             type=raw,latest
 
