@@ -8,7 +8,7 @@ FROM src as src-tellico
 ARG TELLICO_VERSION
 RUN curl -SsL "https://tellico-project.org/files/tellico-${TELLICO_VERSION}.tar.xz" | tar xJ --strip 1
 
-FROM alpine:latest AS builder
+FROM alpine:3.18 AS builder
 RUN apk --update --no-cache add \
     autoconf \
     automake \
