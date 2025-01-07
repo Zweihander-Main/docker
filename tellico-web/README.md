@@ -15,6 +15,7 @@ This allows you to access Tellico through a browser window. If you're looking fo
 - Help does not work, the documentation can be found [here](https://docs.kde.org/stable5/en/tellico/tellico/)
 - If the client doesn't default to automatically sizing the application to your browser window, try setting `DISPLAY_WIDTH` and `DISPLAY_HEIGHT` closer to the dimensions you're accessing it with.
 - This is a HEAVY image as Tellico requires large chunks of the KDE environment.
+- When using a reverse proxy, make sure it's capable of handling websockets correctly. See [here](https://github.com/traefik/traefik/issues/11405) for an example of a Traefik issue that would cause connection errors. 
 - **Security is your problem.** This image does not include any authentication so if this is accessible on a network, you will likely want to setup some kind of reverse proxy with authentication. See the sample configuration for nginx-proxy below.
 
 ## Instructions
